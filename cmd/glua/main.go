@@ -13,6 +13,19 @@ var (
 	trace bool = false
 	debug bool = false
 	tests bool = false
+	usage string  = `
+glua [flags] [files]
+	flags available:
+		-debug: boolean -> Set it to true to enable verbose logging
+		-trace: boolean -> Set it to true to enable tracing
+		-tests: boolean -> This will run all the tests of the engine
+
+	files:
+		Pass the path for the script to be executed.
+
+glua help
+	Print this usage and exit.
+	`
 )
 
 func must(err error) {
@@ -35,16 +48,8 @@ func main() {
 	}
 
 	if flag.Args()[0] == "help" {
-		fmt.Printfn(`
-			glua [flags] [files]
-				flags available:
-					-debug: boolean -> Set it to true to enable verbose logging
-					-trace: boolean -> Set it to true to enable tracing
-					-tests: boolean -> This will run all the tests of the engine
-
-				files:
-					Pass the path for the script to be executed.
-		`)
+		fmt.Println(usage)
+		os.Exit(0)
 	}
 
 	var opts = []lua.Option{lua.WithTrace(trace), lua.WithVerbose(debug)}

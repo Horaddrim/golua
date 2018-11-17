@@ -5,7 +5,31 @@ WARNING! Please expect breaking changes and unstable APIs. Most of them are curr
 `glua` is the binary that calls the interpreter to run your `.lua` files, check the `glua help` for all the 
 flags and the options about running files. 
 
+# Building the CLI from source
+
+For Linux/macOS environments:
+	You should have the `make` build tool to build the `glua` command line interface.
+	After installing, just go to the root directory of this project, and run:
+
+	`make build`
+
+	This command will create a binary named `glua`, and move it to your `$GOPATH/bin` directory
+	If you want to use somewhere else in your computer, please, add the `$GOPATH/bin` directory
+	to your `PATH` environment variable.
+
+
 # Contributing
+
+## Prerequisites:
+	`luac`: You must have Lua compiled for your distribution.
+	`make`: You must have the build tool already installed.
+	`go`: You must have at least the Golang >= 1.11.2 to run the source code and tests.
+
+## Testing the installation
+
+This project have a extensive series of automated tests to make sure everything runs fine in your environment,
+you just have to use the `make tests` command to run all the tests.
+
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
 Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
