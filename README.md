@@ -1,5 +1,10 @@
 WARNING! Please expect breaking changes and unstable APIs. Most of them are currently at an early, experimental stage.
 
+# CLI usage 
+
+`glua` is the binary that calls the interpreter to run your `.lua` files, check the `glua help` for all the 
+flags and the options about running files. 
+
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a

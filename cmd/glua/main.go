@@ -31,7 +31,20 @@ func init() {
 
 func main() {
 	if flag.NArg() < 1 {
-		must(fmt.Errorf("missing arguments"))
+		must(fmt.Errorf("Missing arguments"))
+	}
+
+	if flag.Args()[0] == "help" {
+		fmt.Printfn(`
+			glua [flags] [files]
+				flags available:
+					-debug: boolean -> Set it to true to enable verbose logging
+					-trace: boolean -> Set it to true to enable tracing
+					-tests: boolean -> This will run all the tests of the engine
+
+				files:
+					Pass the path for the script to be executed.
+		`)
 	}
 
 	var opts = []lua.Option{lua.WithTrace(trace), lua.WithVerbose(debug)}
